@@ -95,6 +95,18 @@
             </intent-filter>
         </service>
 
+        <!-- Screensaver with a place picture, a digital clock and today's prayer times. -->
+        <service
+            android:name=".PrayerDream"
+            android:label="@string/dream_prayer_name"
+            android:exported="true"
+            android:permission="android.permission.BIND_DREAM_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.dreams.DreamService" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
         <!-- The remote's Input button (KEYCODE_TV) opens the input switcher; see InputKeyService. -->
         <service
             android:name=".InputKeyService"
