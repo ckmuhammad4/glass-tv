@@ -1,0 +1,5 @@
+{
+  "dock_apps": ["com.netflix.ninja", "com.google.android.youtube.tv", "com.stremio.one", "com.vuclip.viu.tv"],
+  "hidden_apps": ["com.spotify.tv.android", "com.apple.atve.androidtv.appletv", "com.disney.disneyplus"],
+  "show_network_pill": true
+}

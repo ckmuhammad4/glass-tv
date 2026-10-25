@@ -87,7 +87,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.Holder> {
         }
     }
 
-    static final float FOCUS_SCALE = 1.07f;
+    static final float FOCUS_SCALE = 1.14f;
     /** Shared by every tile's zoom, so a focus move makes no new objects. */
     private static final DecelerateInterpolator ZOOM_REDUCED = new DecelerateInterpolator();
     private static final OvershootInterpolator ZOOM_IN = new OvershootInterpolator(1.6f);

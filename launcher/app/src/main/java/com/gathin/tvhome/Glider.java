@@ -99,8 +99,8 @@ final class Glider extends View {
         super(context);
         this.reducedMotion = reducedMotion;
         float density = context.getResources().getDisplayMetrics().density;
-        veil.setColor(0x14FFFFFF);
-        rim = new GlassRim(1.5f * density, 0xD9FFFFFF, 0x1AFFFFFF);
+        veil.setColor(0x38FFFFFF);
+        rim = new GlassRim(3f * density, 0xD9FFFFFF, 0x1AFFFFFF);
         shadowBlur = 22f * density;
         shadowDrop = 8f * density;
         Backdrop.watch(this);
@@ -292,7 +292,7 @@ final class Glider extends View {
         drawShadow(canvas, r);
         if (paneHidden) return;
         glass.draw(canvas, canvasOwner, shape, r, opacity);
-        veil.setAlpha(Math.round(0x14 * opacity));
+        veil.setAlpha(Math.round(0x38 * opacity));
         canvas.drawRoundRect(shape, r, r, veil);
         float half = rim.paint.getStrokeWidth() / 2f;
         shape.inset(half, half);
