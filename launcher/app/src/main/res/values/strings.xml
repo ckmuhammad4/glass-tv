@@ -22,6 +22,10 @@
     <string name="home_settings">Default home</string>
     <string name="home_settings_help">Choose a home screen in system settings, then press Home.</string>
     <string name="input_key_service_description">Opens the input switcher when the remote\'s Input button is pressed.</string>
+    <string name="mac_launchpad">Launchpad</string>
+    <string name="mac_system_settings">System Settings</string>
+    <string name="volume_hud_name">Volume HUD</string>
+    <string name="volume_hud_description">Shows a Mac-style volume indicator when the remote\'s volume buttons are pressed.</string>
     <string name="home_key_name">Home button</string>
     <string name="home_key_description">Makes the remote\'s Home button open this launcher.</string>
     <string name="card_prompt_title">New card from %1$s</string>

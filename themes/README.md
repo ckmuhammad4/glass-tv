@@ -32,6 +32,7 @@ is ignored, and a file that doesn't parse is ignored as a whole, so a theme can 
 | `rows_below_dock` | 0 to 3 | Grid rows left visible under the dock |
 | `shamsi_date` | bool | Show the Solar Hijri date above the Gregorian one |
 | `module_cards` | bool | Look for module cards and ask about them (`true`); `false` turns the feature off |
+| `mac_mode` | bool | Mac-style home: menu bar, Dock with magnification and bounce, Launchpad (themes/mac). Pair with `VOLUME_HUD=1` at install for the Mac volume indicator |
 | `reduced_motion` | bool | Calmer motion for weak GPUs: stiff highlight spring, no tile overshoot, short fades, no entrance replay |
 | `vpn_app` | string | App the network pill opens when a VPN is configured; also shows a red "VPN off" badge while no VPN is up |
 | `show_home_settings_shortcut` | bool | The "Default home" tile, where the TV has a home picker |

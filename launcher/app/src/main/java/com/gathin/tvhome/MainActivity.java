@@ -83,6 +83,8 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
     private String sourcePanelService;
     private String sourcePanelAction;
 
+    /** True when onCreate passed Home to MacActivity: nothing below was set up, so nothing is torn down. */
+    private boolean handedOver;
     private AppAdapter adapter;
     private RecyclerView grid;
     private FrameLayout root;
@@ -240,6 +242,15 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Mac-style home: this stays the registered Home, and hands over before building anything.
+        if (Config.load(this).macMode) {
+            startActivity(new Intent(this, MacActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+            handedOver = true;
+            finish();
+            overridePendingTransition(0, 0);
+            return;
+        }
         setContentView(R.layout.activity_main);
         density = getResources().getDisplayMetrics().density;
         // config.xml, overlaid by config.json from a pushed theme (see Config and tools/theme.sh).
@@ -786,6 +797,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (handedOver) return;
         wallDecoder.shutdownNow();
         ConnectivityManager cm = getSystemService(ConnectivityManager.class);
         TvInputManager tim = (TvInputManager) getSystemService(TV_INPUT_SERVICE);

@@ -173,6 +173,8 @@ ARMED=0
 #                         app; Google TV needs this once the stock launcher is gone (InputKeyService)
 #   HOME_KEY_SERVICE=1    remotes whose Home button sends KEYCODE_ALL_APPS instead of HOME, e.g. Xiaomi
 #                         sticks: the key is routed to the launcher (HomeKeyService)
+#   VOLUME_HUD=1          Mac-style volume indicator over every app; the service changes the volume itself
+#                         and hides the TV's own volume bar (VolumeHudService)
 #   KEEP_HIGH_CONTRAST_TEXT=1  leave Android's High contrast text on (it is switched off otherwise, below)
 enable_service() {   # appends to enabled_accessibility_services without dropping other services
   svc=com.gathin.tvhome/.$1
@@ -180,6 +182,7 @@ enable_service() {   # appends to enabled_accessibility_services without droppin
 }
 if [ "${INPUT_KEY_SERVICE:-0}" = 1 ]; then enable_service InputKeyService; fi
 if [ "${HOME_KEY_SERVICE:-0}" = 1 ]; then enable_service HomeKeyService; fi
+if [ "${VOLUME_HUD:-0}" = 1 ]; then enable_service VolumeHudService; fi
 
 # High contrast text, an Android accessibility setting, draws a dark outline round every letter in every
 # app; over Glass TV's photos it reads as a drop shadow under the clock, date and place names. It is

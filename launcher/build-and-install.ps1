@@ -5,6 +5,7 @@
 # Usage: launcher\build-and-install.ps1 -TvHost 192.168.1.50 [-StockLauncher <package>|none]
 #        The stock launcher is detected from the TV when -StockLauncher is not given.
 #        [-InputKeyService]   remote's Input button opens the input switcher (Google TV); re-pass on every install
+#        [-VolumeHud]         Mac-style volume indicator over every app (VolumeHudService); re-pass on every install
 #        [-HomeKeyService]    remotes whose Home button sends KEYCODE_ALL_APPS (Xiaomi sticks)
 #        [-KeepHighContrastText]  leave Android's High contrast text on (it is switched off otherwise)
 param(
@@ -12,6 +13,7 @@ param(
     [string]$StockLauncher = '',
     [switch]$InputKeyService,
     [switch]$HomeKeyService,
+    [switch]$VolumeHud,
     [switch]$KeepHighContrastText
 )
 $ErrorActionPreference = 'Stop'
@@ -138,6 +140,7 @@ function Enable-Service([string]$Name) {
 }
 if ($InputKeyService) { Enable-Service 'InputKeyService' }
 if ($HomeKeyService) { Enable-Service 'HomeKeyService' }
+if ($VolumeHud) { Enable-Service 'VolumeHudService' }
 # High contrast text outlines every letter in a dark border; over Glass TV's photos it reads as a drop shadow.
 # Switched off here, and said so, unless -KeepHighContrastText. Settings > Accessibility turns it back on.
 if (-not $KeepHighContrastText) {

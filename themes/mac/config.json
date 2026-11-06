@@ -1,0 +1,5 @@
+{
+  "mac_mode": true,
+  "dock_apps": ["com.google.android.youtube.tv", "com.netflix.ninja", "com.android.chrome"],
+  "wallpaper_minutes": 60
+}
